@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Sistema Tigaru</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #1e2124;
+            --text-color: #3f4254;
+            --light-bg: #f5f8fa;
+            --border-color: #e4e6ef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tech-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        
+        .architecture-diagram {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .architecture-diagram img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .model-description {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .model-description h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .model-field {
+            margin-bottom: 15px;
+        }
+        
+        .model-field strong {
+            font-weight: 600;
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Voltar para a página inicial">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+    
+    <header>
+        <div class="container">
+            <h1>Sistema Tigaru</h1>
+            <p>Plataforma integrada para gerenciamento de organizações, assinaturas e serviços de IA</p>
+        </div>
+    </header>
+    
+    <section id="overview">
+        <div class="container">
+            <h2>Visão Geral</h2>
+            <p>O Tigaru é uma plataforma completa para gerenciamento de organizações, assinaturas e serviços de inteligência artificial. O sistema permite que usuários criem e gerenciem organizações, com diferentes níveis de acesso e permissões, além de oferecer integração com diversos serviços e sistemas.</p>
+            <p>A plataforma foi desenvolvida utilizando tecnologias modernas e segue as melhores práticas de desenvolvimento web, garantindo uma experiência fluida e responsiva para os usuários.</p>
+        </div>
+    </section>
+    
+    <section id="architecture">
+        <div class="container">
+            <h2>Arquitetura do Sistema</h2>
+            <p>O Tigaru é construído com uma arquitetura moderna e escalável, utilizando Django como framework principal e integrando diversos componentes para oferecer uma solução completa:</p>
+            
+            <div class="architecture-diagram">
+                <!-- Placeholder para um diagrama de arquitetura -->
+                <p><em>Diagrama de Arquitetura do Sistema</em></p>
+            </div>
+            
+            <h3>Componentes Principais:</h3>
+            <ul>
+                <li><strong>Backend Django:</strong> Núcleo da aplicação, responsável pelo gerenciamento de dados e lógica de negócio</li>
+                <li><strong>Frontend Responsivo:</strong> Interface de usuário moderna construída com Bootstrap e JavaScript</li>
+                <li><strong>Integração com IA:</strong> Módulo de gerenciamento de inteligência artificial para serviços avançados</li>
+                <li><strong>Sistema de Assinaturas:</strong> Gerenciamento de planos e pagamentos via Stripe</li>
+                <li><strong>Autenticação e Autorização:</strong> Sistema seguro de gerenciamento de usuários e permissões</li>
+            </ul>
+            
+            <div class="tech-stack">
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Django</div>
+                <div class="tech-item">Bootstrap</div>
+                <div class="tech-item">JavaScript</div>
+                <div class="tech-item">SQLite/PostgreSQL</div>
+                <div class="tech-item">Docker</div>
+                <div class="tech-item">WebSockets</div>
+                <div class="tech-item">Stripe API</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="data-model">
+        <div class="container">
+            <h2>Modelo de Dados</h2>
+            <p>O sistema é estruturado em torno de um modelo de dados que reflete a organização e gerenciamento de usuários, organizações e serviços:</p>
+            
+            <div class="model-description">
+                <h3>Organization (Organização)</h3>
+                <div class="model-field"><strong>name:</strong> Nome da organização</div>
+                <div class="model-field"><strong>description:</strong> Descrição da organização</div>
+                <div class="model-field"><strong>logo:</strong> Logo da organização</div>
+                <div class="model-field"><strong>created_at:</strong> Data de criação</div>
+                <div class="model-field"><strong>updated_at:</strong> Data de atualização</div>
+                <div class="model-field"><strong>members:</strong> Membros da organização (relacionamento)</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>Membership (Associação)</h3>
+                <div class="model-field"><strong>user:</strong> Usuário associado</div>
+                <div class="model-field"><strong>organization:</strong> Organização relacionada</div>
+                <div class="model-field"><strong>role:</strong> Papel do usuário (owner, admin, member)</div>
+                <div class="model-field"><strong>joined_at:</strong> Data de associação</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>System (Sistema)</h3>
+                <div class="model-field"><strong>organization:</strong> Organização relacionada</div>
+                <div class="model-field"><strong>type:</strong> Tipo de sistema (togglekeeper, ia, tiged, assinatura)</div>
+                <div class="model-field"><strong>is_active:</strong> Status de ativação</div>
+                <div class="model-field"><strong>created_at:</strong> Data de criação</div>
+                <div class="model-field"><strong>updated_at:</strong> Data de atualização</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>Plan (Plano)</h3>
+                <div class="model-field"><strong>name:</strong> Nome do plano</div>
+                <div class="model-field"><strong>system:</strong> Sistema relacionado</div>
+                <div class="model-field"><strong>type:</strong> Tipo de plano (starter, standard, advanced, expert, enterprise)</div>
+                <div class="model-field"><strong>description:</strong> Descrição do plano</div>
+                <div class="model-field"><strong>price:</strong> Preço</div>
+                <div class="model-field"><strong>billing_cycle:</strong> Ciclo de cobrança (monthly, yearly, trial)</div>
+                <div class="model-field"><strong>stripe_price_id:</strong> ID do preço no Stripe</div>
+                <div class="model-field"><strong>features:</strong> Recursos incluídos (JSON)</div>
+                <div class="model-field"><strong>is_active:</strong> Status de ativação</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>Subscription (Assinatura)</h3>
+                <div class="model-field"><strong>organization:</strong> Organização relacionada</div>
+                <div class="model-field"><strong>plan:</strong> Plano relacionado</div>
+                <div class="model-field"><strong>status:</strong> Status da assinatura (active, past_due, canceled, unpaid)</div>
+                <div class="model-field"><strong>stripe_subscription_id:</strong> ID da assinatura no Stripe</div>
+                <div class="model-field"><strong>stripe_customer_id:</strong> ID do cliente no Stripe</div>
+                <div class="model-field"><strong>current_period_start:</strong> Início do período atual</div>
+                <div class="model-field"><strong>current_period_end:</strong> Fim do período atual</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features">
+        <div class="container">
+            <h2>Funcionalidades Principais</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Gerenciamento de Organizações</h3>
+                    <p>Crie e gerencie múltiplas organizações com diferentes níveis de acesso para membros (proprietário, administrador, membro).</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Sistema de Assinaturas</h3>
+                    <p>Integração com Stripe para gerenciamento de planos, assinaturas e pagamentos recorrentes com diferentes ciclos de cobrança.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Assistente Virtual</h3>
+                    <p>Chatbot integrado (TigaruBot) para suporte e assistência aos usuários, melhorando a experiência de uso da plataforma.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Gerenciamento de IA</h3>
+                    <p>Módulo de inteligência artificial para processamento de documentos, análise de dados e automação de tarefas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Interface Responsiva</h3>
+                    <p>Design moderno e responsivo que se adapta a diferentes dispositivos, garantindo uma experiência consistente em desktop e mobile.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Comunicação em Tempo Real</h3>
+                    <p>Implementação de WebSockets para comunicação em tempo real entre usuários e notificações instantâneas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="security">
+        <div class="container">
+            <h2>Segurança e Permissões</h2>
+            <p>O Tigaru implementa um sistema robusto de segurança e permissões:</p>
+            
+            <ul>
+                <li><strong>Autenticação Segura:</strong> Sistema de login com proteção contra ataques e suporte a recuperação de senha</li>
+                <li><strong>Controle de Acesso:</strong> Diferentes níveis de permissão baseados em papéis (RBAC)</li>
+                <li><strong>Proteção de Dados:</strong> Armazenamento seguro de informações sensíveis e criptografia quando necessário</li>
+                <li><strong>Integração Segura:</strong> Comunicação segura com APIs externas e serviços de terceiros</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="deployment">
+        <div class="container">
+            <h2>Implantação e Infraestrutura</h2>
+            <p>O sistema foi projetado para ser facilmente implantado em diferentes ambientes:</p>
+            
+            <ul>
+                <li><strong>Containerização:</strong> Suporte a Docker para implantação consistente em diferentes ambientes</li>
+                <li><strong>Configuração Flexível:</strong> Variáveis de ambiente para configuração de diferentes ambientes (desenvolvimento, teste, produção)</li>
+                <li><strong>Escalabilidade:</strong> Arquitetura que permite escalar horizontalmente para atender a demandas crescentes</li>
+                <li><strong>Terraform:</strong> Infraestrutura como código para provisionamento automatizado de recursos</li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tigaru - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>

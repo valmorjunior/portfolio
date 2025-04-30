@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação - Sistema de Planejamento Estratégico</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #009ef7;
+            --secondary-color: #181c32;
+            --text-color: #3f4254;
+            --light-bg: #f5f8fa;
+            --border-color: #e4e6ef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tech-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        
+        .architecture-diagram {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .architecture-diagram img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .model-description {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .model-description h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .model-field {
+            margin-bottom: 15px;
+        }
+        
+        .model-field strong {
+            font-weight: 600;
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+        
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Voltar para a página inicial">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+    <header>
+        <div class="container">
+            <h1>Sistema de Planejamento Estratégico</h1>
+            <p>Uma plataforma completa para gerenciamento de planejamentos estratégicos empresariais, com foco em objetivos, metas e atividades.</p>
+        </div>
+    </header>
+    
+    <section id="overview">
+        <div class="container">
+            <h2>Visão Geral</h2>
+            <p>O Sistema de Planejamento Estratégico é uma aplicação web desenvolvida para auxiliar empresas na criação, gerenciamento e acompanhamento de seus planejamentos estratégicos. A plataforma permite a definição de objetivos estratégicos, metas mensuráveis e atividades específicas, seguindo a metodologia BSC (Balanced Scorecard).</p>
+            
+            <p>Com uma interface moderna e intuitiva, o sistema possibilita o monitoramento do progresso em tempo real, a atribuição de responsabilidades, o controle de prazos e o acompanhamento de indicadores de desempenho, facilitando a tomada de decisões estratégicas.</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Planejamento Estratégico</h3>
+                    <p>Defina a visão, missão e valores da empresa, estabelecendo a base para o direcionamento estratégico do negócio.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Objetivos Estratégicos</h3>
+                    <p>Crie objetivos alinhados às perspectivas do BSC: Financeira, Clientes, Processos Internos e Aprendizado e Crescimento.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Metas Mensuráveis</h3>
+                    <p>Estabeleça metas quantificáveis com valores-alvo, prazos e responsáveis para cada objetivo estratégico.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Atividades e Tarefas</h3>
+                    <p>Defina atividades específicas para alcançar as metas, com controle de status, prioridades e dependências.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Monitoramento em Tempo Real</h3>
+                    <p>Acompanhe o progresso de objetivos, metas e atividades com indicadores visuais e cálculos automáticos de percentuais.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Gestão de Evidências</h3>
+                    <p>Anexe documentos e arquivos como evidências das atividades realizadas, mantendo um histórico completo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="technology">
+        <div class="container">
+            <h2>Tecnologias Utilizadas</h2>
+            <p>O sistema foi desenvolvido utilizando tecnologias modernas e robustas, garantindo performance, segurança e escalabilidade:</p>
+            
+            <div class="tech-stack">
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Django</div>
+                <div class="tech-item">PostgreSQL</div>
+                <div class="tech-item">HTML5</div>
+                <div class="tech-item">CSS3</div>
+                <div class="tech-item">JavaScript</div>
+                <div class="tech-item">Bootstrap</div>
+                <div class="tech-item">Docker</div>
+                <div class="tech-item">Git</div>
+            </div>
+            
+            <div class="architecture-diagram">
+                <h3>Arquitetura do Sistema</h3>
+                <p>O sistema segue uma arquitetura MVC (Model-View-Controller), implementada através do framework Django:</p>
+                <ul style="list-style-type: disc; margin-left: 20px; margin-bottom: 20px;">
+                    <li><strong>Models:</strong> Representam a estrutura de dados e a lógica de negócio</li>
+                    <li><strong>Views:</strong> Controlam o fluxo de dados e a lógica de apresentação</li>
+                    <li><strong>Templates:</strong> Definem a interface do usuário e a apresentação visual</li>
+                    <li><strong>URLs:</strong> Mapeiam as requisições para as views apropriadas</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <section id="data-model">
+        <div class="container">
+            <h2>Modelo de Dados</h2>
+            <p>O sistema é estruturado em torno de um modelo de dados hierárquico que reflete a metodologia de planejamento estratégico:</p>
+            
+            <div class="model-description">
+                <h3>Company (Empresa)</h3>
+                <div class="model-field"><strong>name:</strong> Nome da empresa</div>
+                <div class="model-field"><strong>description:</strong> Descrição da empresa</div>
+                <div class="model-field"><strong>logo:</strong> Logo da empresa</div>
+                <div class="model-field"><strong>address:</strong> Endereço da empresa</div>
+                <div class="model-field"><strong>phone:</strong> Telefone de contato</div>
+                <div class="model-field"><strong>email:</strong> Email de contato</div>
+                <div class="model-field"><strong>website:</strong> Site da empresa</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>StrategicPlanning (Planejamento Estratégico)</h3>
+                <div class="model-field"><strong>company:</strong> Empresa relacionada</div>
+                <div class="model-field"><strong>title:</strong> Título do planejamento</div>
+                <div class="model-field"><strong>start_date:</strong> Data de início</div>
+                <div class="model-field"><strong>end_date:</strong> Data de término</div>
+                <div class="model-field"><strong>vision:</strong> Visão da empresa</div>
+                <div class="model-field"><strong>mission:</strong> Missão da empresa</div>
+                <div class="model-field"><strong>values:</strong> Valores da empresa</div>
+                <div class="model-field"><strong>status:</strong> Status do planejamento (Rascunho, Em Andamento, Concluído, Arquivado)</div>
+                <div class="model-field"><strong>progress:</strong> Percentual de progresso</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>StrategicObjective (Objetivo Estratégico)</h3>
+                <div class="model-field"><strong>planning:</strong> Planejamento relacionado</div>
+                <div class="model-field"><strong>title:</strong> Título do objetivo</div>
+                <div class="model-field"><strong>description:</strong> Descrição detalhada</div>
+                <div class="model-field"><strong>perspective:</strong> Perspectiva BSC (Financeira, Clientes, Processos Internos, Aprendizado e Crescimento)</div>
+                <div class="model-field"><strong>weight:</strong> Peso do objetivo (1-10)</div>
+                <div class="model-field"><strong>start_date:</strong> Data de início</div>
+                <div class="model-field"><strong>end_date:</strong> Data de término</div>
+                <div class="model-field"><strong>status:</strong> Status do objetivo</div>
+                <div class="model-field"><strong>progress:</strong> Percentual de progresso</div>
+                <div class="model-field"><strong>responsible:</strong> Responsável pelo objetivo</div>
+                <div class="model-field"><strong>budget:</strong> Orçamento planejado</div>
+                <div class="model-field"><strong>actual_cost:</strong> Custo real</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>Goal (Meta)</h3>
+                <div class="model-field"><strong>objective:</strong> Objetivo relacionado</div>
+                <div class="model-field"><strong>title:</strong> Título da meta</div>
+                <div class="model-field"><strong>description:</strong> Descrição detalhada</div>
+                <div class="model-field"><strong>target_value:</strong> Valor alvo a ser alcançado</div>
+                <div class="model-field"><strong>current_value:</strong> Valor atual alcançado</div>
+                <div class="model-field"><strong>unit:</strong> Unidade de medida</div>
+                <div class="model-field"><strong>weight:</strong> Peso da meta (1-10)</div>
+                <div class="model-field"><strong>start_date:</strong> Data de início</div>
+                <div class="model-field"><strong>end_date:</strong> Data de término</div>
+                <div class="model-field"><strong>status:</strong> Status da meta</div>
+                <div class="model-field"><strong>progress:</strong> Percentual de progresso</div>
+                <div class="model-field"><strong>responsible:</strong> Responsável pela meta</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>Activity (Atividade)</h3>
+                <div class="model-field"><strong>goal:</strong> Meta relacionada</div>
+                <div class="model-field"><strong>title:</strong> Título da atividade</div>
+                <div class="model-field"><strong>description:</strong> Descrição detalhada</div>
+                <div class="model-field"><strong>priority:</strong> Prioridade (Baixa, Média, Alta, Urgente)</div>
+                <div class="model-field"><strong>start_date:</strong> Data de início</div>
+                <div class="model-field"><strong>end_date:</strong> Data de término</div>
+                <div class="model-field"><strong>status:</strong> Status da atividade</div>
+                <div class="model-field"><strong>progress:</strong> Percentual de progresso</div>
+                <div class="model-field"><strong>user_responsible:</strong> Usuário responsável</div>
+                <div class="model-field"><strong>estimated_hours:</strong> Horas estimadas</div>
+                <div class="model-field"><strong>actual_hours:</strong> Horas realizadas</div>
+                <div class="model-field"><strong>dependencies:</strong> Atividades dependentes</div>
+                <div class="model-field"><strong>notes:</strong> Observações adicionais</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>ActivityEvidence (Evidência de Atividade)</h3>
+                <div class="model-field"><strong>activity:</strong> Atividade relacionada</div>
+                <div class="model-field"><strong>description:</strong> Descrição da evidência</div>
+                <div class="model-field"><strong>file:</strong> Arquivo de evidência</div>
+                <div class="model-field"><strong>user:</strong> Usuário que anexou a evidência</div>
+            </div>
+            
+            <div class="model-description">
+                <h3>ActivityHistory (Histórico de Atividade)</h3>
+                <div class="model-field"><strong>activity:</strong> Atividade relacionada</div>
+                <div class="model-field"><strong>description:</strong> Descrição da alteração ou comentário</div>
+                <div class="model-field"><strong>user:</strong> Usuário que realizou a alteração</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features">
+        <div class="container">
+            <h2>Funcionalidades Principais</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Gestão de Empresas</h3>
+                    <p>Cadastro e gerenciamento de empresas com informações completas, incluindo logo, dados de contato e descrição.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Criação de Planejamentos</h3>
+                    <p>Definição de planejamentos estratégicos com visão, missão, valores e período de vigência.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Objetivos por Perspectiva</h3>
+                    <p>Criação de objetivos estratégicos categorizados por perspectivas do BSC, com pesos e orçamentos.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Metas Quantificáveis</h3>
+                    <p>Definição de metas com valores-alvo, unidades de medida e acompanhamento do progresso atual.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Atividades Detalhadas</h3>
+                    <p>Gerenciamento de atividades com prioridades, dependências, estimativas de horas e responsáveis.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Evidências e Histórico</h3>
+                    <p>Anexo de arquivos como evidências e registro automático de histórico de alterações.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Dashboard Gerencial</h3>
+                    <p>Visão consolidada do progresso dos planejamentos, objetivos, metas e atividades.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Controle de Usuários</h3>
+                    <p>Gerenciamento de usuários, perfis e permissões de acesso ao sistema.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Notificações e Alertas</h3>
+                    <p>Sistema de notificações para prazos, atrasos e atualizações de atividades.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="benefits">
+        <div class="container">
+            <h2>Benefícios</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Alinhamento Estratégico</h3>
+                    <p>Garante que todas as ações estejam alinhadas à estratégia global da empresa.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Monitoramento Eficiente</h3>
+                    <p>Acompanhamento em tempo real do progresso de objetivos e metas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Transparência</h3>
+                    <p>Visibilidade clara sobre responsabilidades, prazos e resultados alcançados.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Tomada de Decisão</h3>
+                    <p>Informações consolidadas para embasar decisões estratégicas.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Gestão do Conhecimento</h3>
+                    <p>Registro histórico de ações, evidências e aprendizados organizacionais.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>Melhoria Contínua</h3>
+                    <p>Identificação de gargalos e oportunidades de melhoria nos processos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sistema de Planejamento Estratégico - Desenvolvido por Tigaru</p>
+        </div>
+    </footer>
+</body>
+</html>

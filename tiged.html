@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIGED - Sistema de Gestão Eletrônica de Documentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #009ef7;
+            --secondary-color: #181c32;
+            --text-color: #3f4254;
+            --light-bg: #f5f8fa;
+            --border-color: #e4e6ef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tech-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .roadmap-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+        
+        .roadmap-content {
+            flex-grow: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+        
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Voltar para a página inicial">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+    <header>
+        <div class="container">
+            <h1>TIGED</h1>
+            <p>Sistema de Gestão Eletrônica de Documentos</p>
+        </div>
+    </header>
+
+    <section id="overview">
+        <div class="container">
+            <h2>Visão Geral</h2>
+            <p>
+                TIGED é um sistema moderno e completo de gerenciamento eletrônico de documentos (GED) 
+                desenvolvido para otimizar o fluxo de trabalho documental em organizações de todos os portes. 
+                Com recursos avançados de OCR (Reconhecimento Óptico de Caracteres), controle de temporalidade 
+                e gestão de acondicionamento físico, o TIGED oferece uma solução abrangente para digitalização, 
+                indexação, armazenamento e recuperação de documentos.
+            </p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Principais Funcionalidades</h2>
+            
+            <h3>Gestão de Documentos Digitalizados</h3>
+        <div class="feature-item">
+            <p><span class="highlight">OCR Automático:</span> Indexação inteligente do conteúdo de documentos PDF para busca textual avançada</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Múltiplos Anexos:</span> Possibilidade de vincular diversos arquivos a um único documento principal</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Sistema de Exclusão com Restauração:</span> Lixeira inteligente que permite recuperar documentos excluídos</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Log Detalhado de Atividades:</span> Registro completo de todas as operações realizadas no sistema</p>
+        </div>
+
+        <h3>Gestão de Acondicionamento</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Geração de Identificadores:</span> Criação automática de códigos para localização física de documentos</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">QRCode para Rastreamento:</span> Facilidade na identificação e localização de documentos físicos</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Configuração Flexível:</span> Adaptação do sistema à estrutura de armazenamento da organização</p>
+        </div>
+
+        <h3>Controle de Temporalidade</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Sistema de Alertas:</span> Notificações automáticas sobre prazos de guarda e descarte</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Gestão de Prazos:</span> Controle eficiente do ciclo de vida dos documentos</p>
+        </div>
+
+        <h3>Dashboard Dinâmico</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Métricas em Tempo Real:</span> Visualização instantânea de estatísticas e indicadores</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Indicadores de Pendências:</span> Acompanhamento de tarefas e documentos que requerem atenção</p>
+        </div>
+
+        <h3>Sistema de Usuários</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Auto Cadastro com Aprovação:</span> Processo simplificado de registro de novos usuários</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Perfis de Acesso Customizados:</span> Controle granular de permissões por tipo de usuário</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Perfil Específico para Consulta:</span> Acesso limitado para visualização de documentos</p>
+        </div>
+    </section>
+
+    <section id="architecture">
+        <div class="container">
+            <h2>Arquitetura Técnica</h2>
+        <p>
+            O TIGED foi desenvolvido com uma arquitetura moderna e escalável, utilizando containers Docker para facilitar 
+            a implantação e manutenção. A estrutura do projeto é organizada em módulos específicos:
+        </p>
+        <ul>
+            <li><strong>Módulo Core:</strong> Funcionalidades base do sistema</li>
+            <li><strong>Módulo Documents:</strong> Gerenciamento completo de documentos digitais</li>
+            <li><strong>Módulo Storage:</strong> Controle de acondicionamento físico</li>
+            <li><strong>Módulo Users:</strong> Gestão de usuários e permissões</li>
+            <li><strong>API:</strong> Interface para integração com outros sistemas</li>
+        </ul>
+
+        <h3>Stack Tecnológico</h3>
+        <div class="tech-stack">
+            <div class="tech-item">Docker</div>
+            <div class="tech-item">Poetry</div>
+            <div class="tech-item">Python 3.10+</div>
+            <div class="tech-item">Django 5.0</div>
+            <div class="tech-item">Bootstrap 5</div>
+            <div class="tech-item">PostgreSQL</div>
+            <div class="tech-item">Tesseract OCR</div>
+            <div class="tech-item">Redis</div>
+            <div class="tech-item">Celery</div>
+            <div class="tech-item">Nginx</div>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container">
+            <h2>Benefícios para o Negócio</h2>
+        <div class="benefits">
+            <div class="benefit-card">
+                <h4>Para Organizações</h4>
+                <ul>
+                    <li><strong>Redução de Custos Operacionais:</strong> Diminuição de espaço físico para armazenamento e otimização de processos</li>
+                    <li><strong>Conformidade Regulatória:</strong> Atendimento às exigências legais de guarda e descarte de documentos</li>
+                    <li><strong>Segurança da Informação:</strong> Controle de acesso e proteção contra perda ou extravio de documentos</li>
+                    <li><strong>Sustentabilidade:</strong> Redução significativa do uso de papel e recursos naturais</li>
+                    <li><strong>Agilidade nos Processos:</strong> Recuperação instantânea de documentos e informações</li>
+                </ul>
+            </div>
+            <div class="benefit-card">
+                <h4>Para Usuários</h4>
+                <ul>
+                    <li><strong>Interface Intuitiva:</strong> Facilidade de uso sem necessidade de treinamento extensivo</li>
+                    <li><strong>Busca Avançada:</strong> Localização rápida de documentos por conteúdo, metadados ou categorias</li>
+                    <li><strong>Acesso Remoto:</strong> Disponibilidade de documentos a qualquer hora e lugar</li>
+                    <li><strong>Produtividade Aprimorada:</strong> Menos tempo gasto em tarefas administrativas de arquivo</li>
+                    <li><strong>Colaboração Eficiente:</strong> Compartilhamento seguro de documentos entre equipes</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="implementation">
+        <div class="container">
+            <h2>Processo de Implementação</h2>
+        <p>
+            A implementação do TIGED segue uma metodologia estruturada para garantir o sucesso do projeto:
+        </p>
+        <ol>
+            <li><strong>Análise de Requisitos:</strong> Levantamento detalhado das necessidades específicas da organização</li>
+            <li><strong>Configuração do Ambiente:</strong> Preparação da infraestrutura e instalação do sistema</li>
+            <li><strong>Migração de Dados:</strong> Importação de documentos existentes e metadados associados</li>
+            <li><strong>Treinamento:</strong> Capacitação dos usuários e administradores do sistema</li>
+            <li><strong>Acompanhamento:</strong> Suporte contínuo durante as fases iniciais de utilização</li>
+            <li><strong>Avaliação e Ajustes:</strong> Refinamento do sistema com base no feedback dos usuários</li>
+        </ol>
+        </div>
+    </section>
+
+    <section id="differentials">
+        <div class="container">
+            <h2>Diferenciais Competitivos</h2>
+        <ul>
+            <li><strong>Solução Completa:</strong> Integração de gestão documental digital e física em uma única plataforma</li>
+            <li><strong>Tecnologia Moderna:</strong> Utilização de frameworks e bibliotecas atualizadas para melhor desempenho</li>
+            <li><strong>Escalabilidade:</strong> Capacidade de crescer conforme as necessidades da organização</li>
+            <li><strong>Personalização:</strong> Adaptação às necessidades específicas de cada cliente</li>
+            <li><strong>Código Aberto:</strong> Transparência e possibilidade de customização avançada</li>
+            <li><strong>Suporte Local:</strong> Equipe especializada para assistência técnica e consultoria</li>
+        </ul>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap de Evolução</h2>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">1</div>
+            <div class="roadmap-content">
+                <strong>Assinatura Digital:</strong> Integração com certificados digitais para assinatura de documentos
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">2</div>
+            <div class="roadmap-content">
+                <strong>Aplicativo Móvel:</strong> Versão para dispositivos Android e iOS
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">3</div>
+            <div class="roadmap-content">
+                <strong>Inteligência Artificial:</strong> Classificação automática de documentos e extração inteligente de dados
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">4</div>
+            <div class="roadmap-content">
+                <strong>Fluxos de Trabalho Avançados:</strong> Criação de workflows personalizados para aprovação e revisão de documentos
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">5</div>
+            <div class="roadmap-content">
+                <strong>Integração com Sistemas ERP:</strong> Conexão direta com sistemas de gestão empresarial
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tigaru - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>

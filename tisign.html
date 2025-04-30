@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiSign - Plataforma de Assinatura Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #009ef7;
+            --secondary-color: #181c32;
+            --text-color: #3f4254;
+            --light-bg: #f5f8fa;
+            --border-color: #e4e6ef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        ul {
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .feature-item {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tech-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-card h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .roadmap-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-weight: 600;
+        }
+        
+        .roadmap-content {
+            flex-grow: 1;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+        
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Voltar para a página inicial">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+    <header>
+        <div class="container">
+            <h1>TiSign</h1>
+            <p>Plataforma de Assinatura Digital de Documentos</p>
+        </div>
+    </header>
+
+    <section id="overview">
+        <div class="container">
+            <h2>Visão Geral</h2>
+            <p>
+                TiSign é uma solução robusta e segura para assinatura digital de documentos PDF, 
+                desenvolvida para atender às necessidades de empresas que buscam digitalizar e autenticar 
+                seus processos documentais. A plataforma utiliza certificados digitais para garantir a 
+                autenticidade, integridade e não-repúdio dos documentos assinados.
+            </p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Principais Funcionalidades</h2>
+            
+            <h3>Assinatura Digital Segura</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Integração com Certificados Digitais:</span> Compatível com certificados PKCS#12 (.pfx)</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Assinatura Criptográfica CMS:</span> Implementa o padrão Cryptographic Message Syntax para assinaturas seguras</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Representação Visual da Assinatura:</span> Adiciona uma imagem personalizada da assinatura no documento</p>
+        </div>
+
+        <h3>API RESTful Completa</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Autenticação JWT:</span> Sistema seguro de autenticação baseado em tokens</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Processamento Base64:</span> Conversão eficiente entre documentos PDF e strings base64</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Endpoints Simples e Intuitivos:</span> Fácil integração com sistemas existentes</p>
+        </div>
+
+        <h3>Infraestrutura Escalável</h3>
+        <div class="feature-item">
+            <p><span class="highlight">Containerização com Docker:</span> Ambiente consistente e fácil de escalar</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Banco de Dados PostgreSQL:</span> Armazenamento estruturado e confiável</p>
+        </div>
+        <div class="feature-item">
+            <p><span class="highlight">Servidor Gunicorn com Gevent:</span> Processamento assíncrono para melhor performance</p>
+        </div>
+    </section>
+
+    <section id="architecture">
+        <div class="container">
+            <h2>Arquitetura Técnica</h2>
+        <p>
+            A plataforma foi desenvolvida com uma arquitetura modular que separa as responsabilidades em componentes distintos:
+        </p>
+        <ul>
+            <li><strong>Módulo de Autenticação:</strong> Gerencia usuários e controle de acesso</li>
+            <li><strong>Módulo de Processamento de Documentos:</strong> Converte e prepara os PDFs</li>
+            <li><strong>Módulo de Assinatura:</strong> Aplica assinaturas criptográficas aos documentos</li>
+            <li><strong>Interface API:</strong> Fornece endpoints padronizados para aplicações cliente</li>
+        </ul>
+
+        <h3>Stack Tecnológico</h3>
+        <div class="tech-stack">
+            <div class="tech-item">Django + Django REST Framework</div>
+            <div class="tech-item">JWT Authentication</div>
+            <div class="tech-item">endesive</div>
+            <div class="tech-item">cryptography</div>
+            <div class="tech-item">PyKCS11</div>
+            <div class="tech-item">PostgreSQL</div>
+            <div class="tech-item">Gunicorn + Gevent</div>
+            <div class="tech-item">Docker + Docker Compose</div>
+        </div>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container">
+            <h2>Benefícios para o Negócio</h2>
+        <div class="benefits">
+            <div class="benefit-card">
+                <h4>Para Organizações</h4>
+                <ul>
+                    <li><strong>Conformidade Regulatória:</strong> Atende aos requisitos legais para assinaturas eletrônicas</li>
+                    <li><strong>Redução de Custos:</strong> Elimina processos baseados em papel e necessidades de armazenamento físico</li>
+                    <li><strong>Eficiência de Processos:</strong> Reduz o tempo de processamento de documentos de dias para minutos</li>
+                    <li><strong>Impacto Ambiental:</strong> Apoia iniciativas de sustentabilidade reduzindo o uso de papel</li>
+                </ul>
+            </div>
+            <div class="benefit-card">
+                <h4>Para Usuários Finais</h4>
+                <ul>
+                    <li><strong>Fluxo de Trabalho Simplificado:</strong> Interface intuitiva para assinatura de documentos</li>
+                    <li><strong>Economia de Tempo:</strong> Assine documentos remotamente sem presença física</li>
+                    <li><strong>Segurança Aprimorada:</strong> Maior proteção contra falsificações em comparação com assinaturas físicas</li>
+                    <li><strong>Acessibilidade:</strong> Assine documentos de qualquer local com acesso à internet</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="implementation">
+        <div class="container">
+            <h2>Processo de Implementação</h2>
+        <p>
+            O desenvolvimento da plataforma TiSign seguiu as melhores práticas de engenharia de software:
+        </p>
+        <ol>
+            <li><strong>Análise de Requisitos:</strong> Identificação das necessidades específicas do cliente</li>
+            <li><strong>Design de Arquitetura:</strong> Planejamento da estrutura modular e escalável</li>
+            <li><strong>Desenvolvimento:</strong> Implementação com foco em segurança e performance</li>
+            <li><strong>Testes:</strong> Validação extensiva de funcionalidades e segurança</li>
+            <li><strong>Implantação:</strong> Configuração em ambiente containerizado para fácil distribuição</li>
+        </ol>
+        </div>
+    </section>
+
+    <section id="differentials">
+        <div class="container">
+            <h2>Diferenciais Competitivos</h2>
+        <ul>
+            <li><strong>Segurança de Nível Empresarial:</strong> Utiliza padrões criptográficos reconhecidos internacionalmente</li>
+            <li><strong>Facilidade de Integração:</strong> API bem documentada e simples de implementar</li>
+            <li><strong>Flexibilidade:</strong> Adaptável a diferentes fluxos de trabalho e requisitos de negócio</li>
+            <li><strong>Escalabilidade:</strong> Projetado para crescer conforme a demanda aumenta</li>
+        </ul>
+        </div>
+    </section>
+
+    <section id="roadmap">
+        <div class="container">
+            <h2>Roadmap de Evolução</h2>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">1</div>
+            <div class="roadmap-content">
+                <strong>Suporte a Multi-assinaturas:</strong> Permitir que múltiplas partes assinem o mesmo documento
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">2</div>
+            <div class="roadmap-content">
+                <strong>Fluxos de Assinatura:</strong> Definir processos sequenciais de assinatura
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">3</div>
+            <div class="roadmap-content">
+                <strong>Aplicativo Móvel:</strong> Apps nativos para iOS e Android
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">4</div>
+            <div class="roadmap-content">
+                <strong>Análises Avançadas:</strong> Relatórios sobre métricas de processamento de documentos
+            </div>
+        </div>
+        
+        <div class="roadmap-item">
+            <div class="roadmap-icon">5</div>
+            <div class="roadmap-content">
+                <strong>Integração com Blockchain:</strong> Camada adicional de verificação e imutabilidade
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Tigaru - Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>
