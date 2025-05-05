@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ActaControl - Sistema de Gestão de Atas de Reunião</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e293b;
+            --text-color: #4b5563;
+            --light-bg: #f8fafc;
+            --border-color: #e2e8f0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        p {
+            margin-bottom: 20px;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .back-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+            z-index: 1000;
+        }
+        
+        .back-button:hover {
+            transform: scale(1.1);
+        }
+        
+        .back-button svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .tech-item {
+            background-color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 20px;
+            font-weight: 500;
+        }
+        
+        .model-description {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .model-description h3 {
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .model-field {
+            margin-bottom: 15px;
+        }
+        
+        .model-field strong {
+            font-weight: 600;
+            display: inline-block;
+            min-width: 150px;
+        }
+        
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer p {
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 0;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button" title="Voltar para a página inicial">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+        </svg>
+    </a>
+    <header>
+        <div class="container">
+            <h1>ActaControl</h1>
+            <p>Sistema de Gestão de Atas de Reunião com Inteligência Artificial</p>
+        </div>
+    </header>
+
+    <section id="overview">
+        <div class="container">
+            <h2>Visão Geral</h2>
+            <p>O ActaControl é uma solução moderna e eficiente para a gestão de atas de reunião, desenvolvida para simplificar o processo de documentação e acompanhamento de reuniões. Com recursos avançados de IA, o sistema oferece transcrição automática, análise de sentimentos e geração de resumos inteligentes.</p>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Funcionalidades Principais</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>Transcrição Automática</h3>
+                    <p>Converta automaticamente áudio de reuniões em texto utilizando tecnologia de reconhecimento de fala avançada.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Análise de Sentimentos</h3>
+                    <p>Identifique o tom e sentimento das discussões para melhor compreensão do contexto das reuniões.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Resumos Inteligentes</h3>
+                    <p>Gere automaticamente resumos concisos das reuniões, destacando os pontos mais importantes.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Multi-tenant</h3>
+                    <p>Suporte a múltiplas organizações com isolamento completo de dados e configurações personalizadas.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Controle de Acesso</h3>
+                    <p>Sistema robusto de permissões e papéis para garantir a segurança e privacidade das informações.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Exportação em PDF</h3>
+                    <p>Exporte atas em formato PDF profissional com layout personalizado e marca d'água.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack">
+        <div class="container">
+            <h2>Stack Tecnológico</h2>
+            <div class="tech-stack">
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Django</div>
+                <div class="tech-item">PostgreSQL</div>
+                <div class="tech-item">TailwindCSS</div>
+                <div class="tech-item">OpenAI API</div>
+                <div class="tech-item">Whisper</div>
+                <div class="tech-item">WeasyPrint</div>
+                <div class="tech-item">Docker</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="data-model">
+        <div class="container">
+            <h2>Modelo de Dados</h2>
+            <p>O sistema é estruturado em torno de um modelo de dados que reflete a organização de reuniões e seus participantes:</p>
+            
+            <div class="model-description">
+                <h3>Meeting (Reunião)</h3>
+                <div class="model-field"><strong>title:</strong> Título da reunião</div>
+                <div class="model-field"><strong>date:</strong> Data e hora da reunião</div>
+                <div class="model-field"><strong>location:</strong> Local da reunião</div>
+                <div class="model-field"><strong>description:</strong> Descrição ou pauta</div>
+                <div class="model-field"><strong>status:</strong> Status da reunião</div>
+                <div class="model-field"><strong>tenant:</strong> Organização relacionada</div>
+            </div>
+
+            <div class="model-description">
+                <h3>Participant (Participante)</h3>
+                <div class="model-field"><strong>meeting:</strong> Reunião relacionada</div>
+                <div class="model-field"><strong>user:</strong> Usuário participante</div>
+                <div class="model-field"><strong>role:</strong> Papel na reunião</div>
+                <div class="model-field"><strong>attendance:</strong> Status de presença</div>
+            </div>
+
+            <div class="model-description">
+                <h3>MinutesHistory (Histórico de Atas)</h3>
+                <div class="model-field"><strong>meeting:</strong> Reunião relacionada</div>
+                <div class="model-field"><strong>content:</strong> Conteúdo da ata</div>
+                <div class="model-field"><strong>version:</strong> Versão da ata</div>
+                <div class="model-field"><strong>created_at:</strong> Data de criação</div>
+                <div class="model-field"><strong>created_by:</strong> Autor da versão</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ActaControl. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
